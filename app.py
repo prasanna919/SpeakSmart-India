@@ -11,7 +11,14 @@ from gnani.tts import GnaniTTSClient, AudioConfig
 # -------------------------------
 
 load_dotenv()
-API_KEY = os.getenv("GNANI_API_KEY")
+
+API_KEY = os.getenv("GNANI_API_KEY", "vach_1ytE2CY5X2DTlYvmePskF6TRVBsqTwlf9ckZy1XA7YvCT91o4DnzJGsW56Sa3sUw2DdC4HhDPlRqzNtK2vZ1XLHTJtomcrEf_40b2c2613ac08fd06c7efc5adcc1a1e5")
+
+if not API_KEY:
+    try:
+        API_KEY = st.secrets["GNANI_API_KEY"]
+    except Exception:
+        API_KEY = "vach_1ytE2CY5X2DTlYvmePskF6TRVBsqTwlf9ckZy1XA7YvCT91o4DnzJGsW56Sa3sUw2DdC4HhDPlRqzNtK2vZ1XLHTJtomcrEf_40b2c2613ac08fd06c7efc5adcc1a1e5"
 
 
 # -------------------------------
